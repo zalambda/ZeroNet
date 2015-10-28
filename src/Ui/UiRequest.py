@@ -51,7 +51,7 @@ class UiRequest(object):
             self.sendHeader()
             return ""
 
-        if re.match("^[a-z]+\.bit$", self.env.get("HTTP_HOST")):
+        if re.match("^[a-z]+\.bit$", self.env.get("HTTP_HOST")) and not re.match("/(?P<address>[A-Za-z0-9\._-]+)(?P<inner_path>/.*|$)", path) and not e.match("^/[a-z]+\.bit$", path):
             path = "/" + self.env.get("HTTP_HOST") + path
 
         if path == "/":
