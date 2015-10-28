@@ -51,6 +51,9 @@ class UiRequest(object):
             self.sendHeader()
             return ""
 
+        if re.match("^[a-z]+\.bit$"ui, self.env.get("HTTP_HOST"))
+            path = "/" + self.env.get("HTTP_HOST") + path
+
         if path == "/":
             return self.actionIndex()
         elif path.endswith("favicon.ico"):
